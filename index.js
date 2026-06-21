@@ -178,7 +178,6 @@ app.patch('/user-update/:email',verifyToken, async (req, res) => {
     res.send(result);
   })
 
-    // 
     app.patch('/ideas/:id', verifyToken, async (req, res) => {
       const filter = { _id: new ObjectId(req.params.id) };
       const updatedDoc = { $set: req.body };
