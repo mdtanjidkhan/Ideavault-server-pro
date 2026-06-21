@@ -51,7 +51,7 @@ const verifyToken = async (req, res, next)=>{
 async function run() {
   try {
 
-    await client.connect();
+    // await client.connect();
 
     const db = client.db("IdeaVault");
     const usersCollection = db.collection("users");
@@ -59,7 +59,7 @@ async function run() {
 
     // get idea page
 
-    app.get('/users', verifyToken, async (req, res) => {
+    app.get('/users', async (req, res) => {
       const search = req.query.search;
       const category = req.query.category;
       let query = {};
@@ -204,7 +204,7 @@ app.patch('/user-update/:email',verifyToken, async (req, res) => {
 
 
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // await client.close();
